@@ -12,7 +12,7 @@ makeCaMax <- function(x = matrix()) {
       m <<- NULL
   }
   get <- function() x
-  setinv <- function(solve) m <<- solve
+  setinv <- function(inverse) m <<- inverse
   getinv <- function() m
   list(set = set, get = get,
       setinv = setinv,
@@ -36,6 +36,8 @@ cacMean <- function(x, ...) {
 
 A <- matrix(c(2:9,9), nrow = 3, ncol = 3)
 
+# I added a determinant of matrix to avoid errors, since a zero determinant 
+# seems to cause problems for me.
 D <- det(A)
 print(D) 
 
